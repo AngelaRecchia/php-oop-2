@@ -28,6 +28,8 @@ $u5 = new User(1, "Acqua", "Blu", "Via 13");
 $spices = [$s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8];
 $users = [$u1, $u2, $u3, $u4, $u5];
 
+var_dump($spices, $users);
+
 
 ?>
 

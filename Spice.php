@@ -1,19 +1,14 @@
 <?php
+require_once 'Product.php';
 
-class Spice {
-    public $name;
-    public $price;
+class Spice extends Product {
     public $quantity = 50;
-    public $category;
     public $country_origin;
     public $spicy_lvl;
-    public $in_basket = false;
-    public $available = true;
-    public $img;
 
     function __construct($_name, $_price, $_country_origin) {
-        $this->name = $_name;
-        $this->price = $_price;
+        parent::__construct($_name, $_price);
+        $this->category = "Spice";
         $this->country_origin = $_country_origin;
     }
 

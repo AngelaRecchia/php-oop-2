@@ -7,6 +7,15 @@ BONUS: Gestite eventuali eccezioni che si possono verificare (es: carta di credi
 require_once 'Spice.php';
 require_once 'Tea.php';
 require_once 'User.php';
+require_once 'CreditCard.php';
+
+/* create users */
+$u1 = new User(1, "Pippo", "Pappo", "Via 123");
+$u2 = new User(2, "Pluto", "Bo", "Via 234");
+$u3 = new User(3, "Rosa", "Gialla", "Via 456");
+$u4 = new User(4, "Fumo", "Scuro", "Via 765");
+$u5 = new User(5, "Acqua", "Blu", "Via 13");
+$u5 -> premium = true;
 
 /* create spices */
 $s1 = new Spice("Smoked Paprika Hot", 32.5, "Paprika", "Spain");
@@ -35,17 +44,29 @@ $t5 = new Tea("Chamomile", 75, "Herbal Tea", "Egypt");
 $t6 = new Tea("Rooibos", 65, "Rooibos Tea", "South Africa");
 $t7 = new Tea("White Peony", 160, "White Tea", "China", 60);
 
+/* create credit card */
+try {
+    $cc1 = new CreditCard("0000111122223333", "2020-11");
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
 
-/* create users */
-$u1 = new User(1, "Pippo", "Pappo", "Via 123");
-$u2 = new User(1, "Pluto", "Bo", "Via 234");
-$u3 = new User(1, "Rosa", "Gialla", "Via 456");
-$u4 = new User(1, "Fumo", "Scuro", "Via 765");
-$u5 = new User(1, "Acqua", "Blu", "Via 13");
 
-$allSpices = [$s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8];
-$allTea = [$t1, $t2, $t3, $t4, $t5, $t6, $t7];
+
 $allUsers = [$u1, $u2, $u3, $u4, $u5];
+$allTea = [$t1, $t2, $t3, $t4, $t5, $t6, $t7];
+$allSpices = [$s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8];
+$allProducts = array_merge($allTea, $allSpices);
+
+$activeUser = $u5;
+
+if($activeUser->premium) {
+    array_map('applyDiscount', $allProducts);
+}
+
+function applyDiscount($el) {
+    return $el->price*=0.8;
+}
 
 /* var_dump($allSpices, $allTea, $allUsers); */
 

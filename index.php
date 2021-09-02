@@ -8,14 +8,14 @@ require_once 'Spice.php';
 require_once 'User.php';
 
 /* create spices */
-$s1 = new Spice("Smoked Paprika Hot",  2.90, "Spain");
-$s2 = new Spice("Smoked Paprika Mild", 2.60, "Spain");
-$s3 = new Spice("Hungarian Paprika 'Noble Sweet'", 3.10, "Hungary");
-$s4 = new Spice("Kampot Black Pepper", 5.90, "Cambodia");
-$s5 = new Spice("Kampot White Pepper", 7.90, "Cambodia");
-$s6 = new Spice("Aleppo Red Pepper Flakes", 4.90, "Turkey");
-$s7 = new Spice("Cayenne Pepper", 3.90, "French Guiana");
-$s8 = new Spice("Habanero Powder", 6.10, "Mexico");
+$s1 = new Spice("Smoked Paprika Hot",  32.5, "Paprika", "Spain");
+$s2 = new Spice("Smoked Paprika Mild", 30, "Paprika", "Spain");
+$s3 = new Spice("Hungarian Paprika 'Noble Sweet'", 36.3, "Paprika", "Hungary");
+$s4 = new Spice("Kampot Black Pepper", 42, "Black Pepper", "Cambodia");
+$s5 = new Spice("Kampot White Pepper", 38.5, "White Pepper", "Cambodia");
+$s6 = new Spice("Aleppo Red Pepper Flakes", 52.3, "Chili Pepper", "Turkey");
+$s7 = new Spice("Cayenne Pepper", 45.2, "Chili Pepper", "French Guiana");
+$s8 = new Spice("Habanero Powder", 60.4, "Chili Pepper", "Mexico");
 
 
 /* create users */

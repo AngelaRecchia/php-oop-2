@@ -1,14 +1,20 @@
 <?php
 require_once 'Product.php';
+require_once 'Traits.php';
+
 
 class Spice extends Product {
-    public $quantity = 50;
+    use Price;
+    public $grams = 50;
     public $country_origin;
     public $spicy_lvl;
+    public $type;
 
-    function __construct($_name, $_price, $_country_origin) {
-        parent::__construct($_name, $_price);
+    function __construct($_name, $_priceKg, $_type, $_country_origin) {
+        parent::__construct($_name);
+        $this->price = $this->getPrice($_priceKg);
         $this->category = "Spice";
+        $this->type = $_type;
         $this->country_origin = $_country_origin;
     }
 

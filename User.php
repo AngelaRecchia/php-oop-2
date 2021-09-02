@@ -14,4 +14,12 @@ class User {
         $this->surname = $_surname;
         $this->address = $_address;
     }
+
+    public function getId() {
+        return $this->id;
+    }
+    
+    public function addPoints($_points) {
+        $this->points += $_points;
+    }
 }

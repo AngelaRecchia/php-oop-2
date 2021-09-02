@@ -7,8 +7,11 @@ class Product {
     public $in_basket = false;
     public $available = true;
 
-    function __construct($_name, $_price) {
+    function __construct($_name) {
         $this->name = $_name;
-        $this->price = $_price;
+    }
+
+    public function addToBasket() {
+        $this->in_basket = true;
     }
 }

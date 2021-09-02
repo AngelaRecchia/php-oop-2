@@ -1,10 +1,8 @@
 <?php
 require_once 'Product.php';
-require_once 'Traits.php';
-
 
 class Spice extends Product {
-    use Price;
+    
     public $grams = 50;
     public $country_origin;
     public $spicy_lvl;

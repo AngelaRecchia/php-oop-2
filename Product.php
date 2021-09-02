@@ -1,5 +1,8 @@
 <?php
+require_once 'Traits.php';
+
 class Product {
+    use Price;
     public $name;
     public $price;
     public $category;

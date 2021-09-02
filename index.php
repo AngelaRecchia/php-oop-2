@@ -10,22 +10,30 @@ require_once 'User.php';
 
 /* create spices */
 $s1 = new Spice("Smoked Paprika Hot", 32.5, "Paprika", "Spain");
+$s1->spicy_lvl = 4;
 $s2 = new Spice("Smoked Paprika Mild", 30, "Paprika", "Spain");
+$s2->spicy_lvl = 2;
 $s3 = new Spice("Hungarian Paprika 'Noble Sweet'", 36.3, "Paprika", "Hungary");
+$s3->spicy_lvl = 1;
 $s4 = new Spice("Kampot Black Pepper", 42, "Black Pepper", "Cambodia");
+$s4->spicy_lvl = 2;
 $s5 = new Spice("Kampot White Pepper", 38.5, "White Pepper", "Cambodia");
+$s5->spicy_lvl = 3;
 $s6 = new Spice("Aleppo Red Pepper Flakes", 52.3, "Chili Pepper", "Turkey");
+$s6->spicy_lvl = 6;
 $s7 = new Spice("Cayenne Pepper", 45.2, "Chili Pepper", "French Guiana");
+$s7->spicy_lvl = 7;
 $s8 = new Spice("Habanero Powder", 60.4, "Chili Pepper", "Mexico");
+$s8->spicy_lvl = 9;
 
 /* create teas */
 $t1 = new Tea("Ceylon", 80, "Black Tea", "Sri Lanka");
 $t2 = new Tea("Darjeeling", 95, "Black Tea", "India");
-$t3 = new Tea("Oolong", 105, "Green Tea", "China");
-$t4 = new Tea("Matcha", 330, "Green Tea", "Japan");
+$t3 = new Tea("Oolong", 105, "Green Tea", "China", 75);
+$t4 = new Tea("Matcha", 330, "Green Tea", "Japan", 45);
 $t5 = new Tea("Chamomile", 75, "Herbal Tea", "Egypt");
 $t6 = new Tea("Rooibos", 65, "Rooibos Tea", "South Africa");
-$t7 = new Tea("White Peony", 160, "White Tea", "China");
+$t7 = new Tea("White Peony", 160, "White Tea", "China", 60);
 
 
 /* create users */
@@ -35,11 +43,11 @@ $u3 = new User(1, "Rosa", "Gialla", "Via 456");
 $u4 = new User(1, "Fumo", "Scuro", "Via 765");
 $u5 = new User(1, "Acqua", "Blu", "Via 13");
 
-$spices = [$s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8];
-$teas = [$t1, $t2, $t3, $t4, $t5, $t6, $t7];
-$users = [$u1, $u2, $u3, $u4, $u5];
+$allSpices = [$s1, $s2, $s3, $s4, $s5, $s6, $s7, $s8];
+$allTea = [$t1, $t2, $t3, $t4, $t5, $t6, $t7];
+$allUsers = [$u1, $u2, $u3, $u4, $u5];
 
-var_dump($spices, $teas, $users);
+/* var_dump($allSpices, $allTea, $allUsers); */
 
 
 ?>
@@ -53,6 +61,48 @@ var_dump($spices, $teas, $users);
     <title>Shop</title>
 </head>
 <body>
+    
+    <section id="tea">
+        <h2>Tea</h2>
+        <ul>
+            <?php 
+                foreach ($allTea as $tea) {
+            ?>
+                <li>
+                    <h3> <?php echo $tea->name ?></h3>
+                    <ol>
+                        <li>Country: <?php echo $tea->country_origin ?></li>
+                        <li>Type: <?php echo $tea->type ?></li>
+                        <li>Quantity: <?php echo $tea->grams ?>g</li>
+                    </ol>
+                    <h4><?php echo $tea->price ?> €</h4>
+                </li>
+            <?php
+                }
+            ?>
+        </ul>
+    </section>
+
+    <section id="spices">
+        <h2>Spices</h2>
+        <ul>
+            <?php 
+                foreach ($allSpices as $spice) {
+            ?>
+                <li>
+                    <h3> <?php echo $spice->name ?></h3>
+                    <ol>
+                        <li>Country: <?php echo $spice->country_origin ?></li>
+                        <li>Spice Level: <?php echo $spice->spicy_lvl ?> / 10</li>
+                        <li>Quantity: <?php echo $spice->grams ?>g</li>
+                    </ol>
+                    <h4><?php echo $spice->price ?> €</h4>
+                </li>
+            <?php
+                }
+            ?>
+        </ul>
+    </section>
     
 </body>
 </html>

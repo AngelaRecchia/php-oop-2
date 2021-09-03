@@ -7,6 +7,7 @@ class User {
     public $address;
     public $points = 0;
     public $premium = false;
+    public $creditCard;
 
     function __construct($_id, $_name, $_surname, $_address) {
         $this->id = $_id;
@@ -18,8 +19,12 @@ class User {
     public function getId() {
         return $this->id;
     }
-    
+
     public function addPoints($_points) {
         $this->points += $_points;
+    }
+
+    public function addCC($_creditCard) {
+        $this->creditCard = $_creditCard;
     }
 }

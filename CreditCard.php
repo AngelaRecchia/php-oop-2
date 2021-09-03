@@ -1,8 +1,8 @@
 <?php
 
 class CreditCard {
-    public $expiry;
-    public $number;
+    protected $expiry;
+    protected $number;
 
     function __construct($_number, $_expiry){
         if (strlen($_number) != 16) {
@@ -12,7 +12,7 @@ class CreditCard {
         }
         
         var_dump(DateTime::CreateFromFormat('Y-m', $_expiry));
-        if (DateTime::CreateFromFormat('Y-m', $_expiry) > date('Y-m')){
+        if (DateTime::CreateFromFormat('Y-m', $_expiry) < new DateTime('now')){
             throw new Exception("The credit card is expired");
         } else {
             $this->expiry = DateTime::CreateFromFormat('Y-m', $_expiry);

@@ -46,10 +46,15 @@ $t7 = new Tea("White Peony", 160, "White Tea", "China", 60);
 
 /* create credit card */
 try {
-    $cc1 = new CreditCard("0000111122223333", "2020-11");
+    $cc1 = new CreditCard("0000111122223333", "2021-09");
+    $u1->addCC($cc1);
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
+
+
+
+var_dump($u1);
 
 
 
@@ -67,6 +72,7 @@ if($activeUser->premium) {
 function applyDiscount($el) {
     return $el->price*=0.8;
 }
+
 
 /* var_dump($allSpices, $allTea, $allUsers); */
 
